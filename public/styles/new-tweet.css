@@ -1,4 +1,4 @@
-.new-tweet {
+section.new-tweet {
   width: 100%;
   margin: auto;
   border-style: double;
@@ -8,21 +8,21 @@
   
 }
 
-h2 {
+section h2 {
   border-bottom: 3px solid;
   width: 100%;
   text-align: center;
 }
 
-textarea {
+section textarea {
   width: 100%;
   margin: auto;
 }
 
-::placeholder{
+section ::placeholder{
   text-align: center;
 }
 
-.counter {
+section .counter {
   float: right;
 }
