@@ -1,0 +1,28 @@
+.new-tweet {
+  width: 100%;
+  margin: auto;
+  border-style: double;
+  border-radius: 5px;
+  color: blueviolet;
+  padding: 1em 2em;
+  
+}
+
+h2 {
+  border-bottom: 3px solid;
+  width: 100%;
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  margin: auto;
+}
+
+::placeholder{
+  text-align: center;
+}
+
+.counter {
+  float: right;
+}
