@@ -39,8 +39,16 @@ $(document).ready(function() {
   $('#new-tweet').submit(function (e){
     e.preventDefault();
     const serializedTweet = $(this).serialize();
-    $.post('/tweets',serializedTweet,(res)=>{
-      loadTweets();
-    })
+    console.log($('span.counter').text())
+    
+    if ($('span.counter').text()<0){
+      alert("error: over character limit")
+    } else if (serializedTweet == "text="){
+      alert("error: empty tweet")
+    } else {
+      $.post('/tweets',serializedTweet,(res)=>{
+        loadTweets();
+      })
+    }
   })
 })
