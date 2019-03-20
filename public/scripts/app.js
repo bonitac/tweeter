@@ -35,13 +35,11 @@ function loadTweets(){
 }
 
 $(document).ready(function() {
-  // loadTweets();
+  loadTweets();
   $('#new-tweet').submit(function (e){
     e.preventDefault();
     const serializedTweet = $(this).serialize();
     $.post('/tweets',serializedTweet,(res)=>{
-      // console.log(serializedTweet)
-      // console.log(res);
       loadTweets();
     })
   })
