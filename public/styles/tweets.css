@@ -1,0 +1,49 @@
+article.tweets {
+  max-width: 800px;
+   margin: auto;
+   padding: 0%;
+   overflow: hidden;
+   border-radius: 5px;
+   border-style: double;
+   border-color: grey;
+   background-color: whitesmoke;
+   opacity: 0.6;
+}
+
+header {
+  background-color: lightgray;
+}
+
+.user-info {
+  height: 80px;
+}
+
+ article img {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  border-width: 1px;
+  border-style: hidden;
+  border-radius: 25px;
+}
+
+article.tweets:hover{
+  border-color: black;
+  opacity: 1;
+}
+
+article h3{
+  float:left;
+}
+
+article h4 {
+  float: right;
+}
+
+article h5 {
+}
+
+footer{
+  background-color:#E8E8E8;
+}

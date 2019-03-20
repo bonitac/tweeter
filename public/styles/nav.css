@@ -5,6 +5,7 @@ nav#nav-bar {
   top: 0;
   width: 100%;
   padding: 0em 2em;
+  z-index: 100;
 }
 #nav-bar .logo {
   float: left;
