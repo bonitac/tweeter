@@ -74,13 +74,23 @@ function createTweetElement(tweet) {
   $header.append($handle);
   $header.append($name);
   $tweet.append($tweetContent);
-  $tweet.append($time);
+  $tweet.append($time); //need to convert time
   return $tweet;
 }
 
 $(document).ready(function() {
   renderTweets(tweets);
-  $.ajax('http://localhost:8080/').then(console.log("ajax"))
-  
+  // $.ajax('http://localhost:8080/').then(console.log("ajax"))
+
+  $('#new-tweet').submit(function (e){
+    e.preventDefault();
+    const serializedTweet = $(this).serialize();
+    console.log(serializedTweet);
+    // $.post('/tweets',serializedTweet,(res)=>{
+    //   createTweetElement(serializedTweet);
+    // })
+    // tweets.push($(':input').val())
+    // renderTweets(tweets);
+  })
 })
 
