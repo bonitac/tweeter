@@ -1,30 +1,30 @@
 
-section.new-tweet {
+div.compose {
   width: 100%;
   margin: auto;
   border-style: double;
   border-radius: 5px;
   color: blueviolet;
   padding: 1em 2em;
-  
+  display: none;
 }
 
-section.new-tweet h2 {
+div.compose h2 {
   border-bottom: 3px solid;
   width: 100%;
   text-align: center;
 }
 
-section textarea {
+div textarea {
   width: 100%;
   height: 100px;
   margin: auto;
 }
 
-section ::placeholder{
+div ::placeholder{
   text-align: center;
 }
 
-section .counter {
+div .counter {
   float: right;
 }

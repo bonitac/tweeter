@@ -18,3 +18,12 @@ nav#nav-bar {
   line-height: 80px;
   font-size: 200%
 }
+
+#nav-bar button {
+  background-color: whitesmoke;
+  float:right;
+  margin: 1em;
+  height: 50px;
+  border-style: hidden;
+  border-radius: 5px;
+}

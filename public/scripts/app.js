@@ -12,11 +12,16 @@ function renderTweets(tweets) {
   return tweetContainer;
 }
 
+function compose(){
+  $('.compose').slideToggle('fast');
+  $('textarea').focus();
+}
+
 
 function createTweetElement(tweet) {
   let $tweet = $('<article>').addClass('tweets');
   let $header = $('<header>').addClass('user-info');
-  let $time = $("<footer>").addClass('time').text(new Date(1000*tweet.created_at));
+  let $time = $("<footer>").addClass('time').text(new Date(tweet.created_at).toLocaleString());
   $tweet.append($header);
   $header.append($('<img>').addClass('avatar').attr("src", tweet.user.avatars.small));
   $header.append($('<h4>').addClass('handle').text(tweet.user.handle));

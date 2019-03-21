@@ -33,18 +33,19 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <button onclick="compose()">Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-        <section class="new-tweet">
+        <div class="compose" >
             <h2>Compose Tweet</h2>
             <form id="new-tweet" action="/tweets/" method="post">
               <textarea name="text" placeholder="What are you humming about?"></textarea>
               <input type="submit" class="send-tweet" value="Tweet">
               <span class="counter">140</span>
             </form>
-        </section>
+          </div>
         <div class="tweets-container">
         <article class="tweets">
           <header class="user-info">
