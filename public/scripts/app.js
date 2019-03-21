@@ -17,7 +17,6 @@ function compose(){
   $('textarea').focus();
 }
 
-
 function createTweetElement(tweet) {
   let $tweet = $('<article>').addClass('tweets');
   let $header = $('<header>').addClass('user-info');
