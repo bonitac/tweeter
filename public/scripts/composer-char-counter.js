@@ -1,7 +1,7 @@
 const maxChar = 140;
 
 $(document).ready(function() {
-  $(":input").change(function(){
-    $("span.counter").text(maxChar-$(":input").val().length)
+  $("textarea").change(function(){
+    $("span.counter").text(maxChar-$("textarea").val().length)
   })
 })
