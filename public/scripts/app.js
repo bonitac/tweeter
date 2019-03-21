@@ -39,17 +39,26 @@ function loadTweets(){
     });
 }
 
+function errorMessage(tweet){
+  if (tweet.length > 140){
+    $('.error-message').text("Error: Over character limit")
+    return false;
+  } else if (tweet === ""){
+    $('.error-message').text("Please enter your tweet")
+    return false;
+  } else{
+    $('.error-message').text("")
+    return true;
+  }
+}
+
 $(document).ready(function() {
   loadTweets();
   $('#new-tweet').submit(function (e){
     e.preventDefault();
     let serializedTweet = $(this).serialize();    
-    if ($('span.counter').text()<0){
-      alert("error: over character limit")
-    } else if (serializedTweet == "text="){
-      alert("error: empty tweet")
-    } else {
-      $.post('/tweets',serializedTweet,(res)=>{
+    if (errorMessage($('textarea').val())){
+    $.post('/tweets',serializedTweet,(res)=>{
         loadTweets();
         $('#new-tweet textarea').val("");
       })
