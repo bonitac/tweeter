@@ -3,6 +3,7 @@ const maxChar = 140;
 function errorMessage(tweet){
   if (tweet.length > 140){
     $('.error-message').text("Error: Over character limit")
+    $("span.counter").css("color","red")
     return false;
   } else if (tweet === ""){
     $('.error-message').text("Please enter your tweet")
@@ -15,8 +16,7 @@ function errorMessage(tweet){
 
 $(document).ready(function() {
   $("textarea").on("input", function(){
+    $("span.counter").css("color","blueviolet")
     $("span.counter").text(maxChar-$("textarea").val().length)
-  }).on("submit", function(){
-    $("span.counter").text(maxChar)
   })
 })

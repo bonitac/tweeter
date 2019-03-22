@@ -20,16 +20,19 @@ function compose(){
 function createTweetElement(tweet) {
   let $tweet = $('<article>').addClass('tweets');
   let $header = $('<header>').addClass('user-info');
-  // let $footer = $("<footer>")
-  // let $time = $footer.append($(<'h5'>)).addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString());
-  // let $flag = $footer.append($(<'img'>)).addClass('flag').attr("src","https://cdn.onlinewebfonts.com/svg/img_469905.png");
+  let $footer = $("<footer>").addClass('tweet-footer')
+  $footer.append($('<h5>')).addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString());
+  // $footer.append($(<'img'>)).addClass('flag').attr("src", "/images/flag.png");
+
+  // <img class="retweet" src="/images/heart.png">
+  // <img class="like" src="/images/retweet.png">
 
   $tweet.append($header);
   $header.append($('<img>').addClass('avatar').attr("src", tweet.user.avatars.small));
   $header.append($('<h4>').addClass('handle').text(tweet.user.handle));
   $header.append($('<h3>').addClass('name').text(tweet.user.name));
   $tweet.append($('<h5>').addClass('tweet-content').text(tweet.content.text));
-  // $tweet.append($footer);
+  $tweet.append($footer);
 
   return $tweet;
 }
@@ -77,5 +80,4 @@ $(document).ready(function() {
       })
     }
   })
-  loadTweets();
 })
