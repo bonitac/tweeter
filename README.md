@@ -4,13 +4,13 @@ Tweeter is a simple, single-page Twitter clone. This demonstrates HTML, CSS, JS,
 
 ## Screenshots of Final Product
 ### Composing a Tweet
-!["Screenshot of Composing a Tweet"](https://github.com/bonitac/tinyApp/blob/master/docs/register.png)
+!["Screenshot of Composing a Tweet"](https://github.com/bonitac/tweeter/blob/master/docs/composing%20tweet.png)
 
 ### Over the Character Limit
-!["Screenshot of Over the Character Limit"](https://github.com/bonitac/tinyApp/blob/master/docs/login.png)
+!["Screenshot of Over the Character Limit"](https://github.com/bonitac/tweeter/blob/master/docs/over%20character%20limit.png)
 
 ### Posted Tweet
-!["Screenshot of Posted tweet"](https://github.com/bonitac/tinyApp/blob/master/docs/index.png)
+!["Screenshot of Posted tweet"](https://github.com/bonitac/tweeter/blob/master/docs/successful%20tweet.png)
 
 
 ## Dependencies
