@@ -20,13 +20,17 @@ function compose(){
 function createTweetElement(tweet) {
   let $tweet = $('<article>').addClass('tweets');
   let $header = $('<header>').addClass('user-info');
-  let $time = $("<footer>").addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString());
+  // let $footer = $("<footer>")
+  // let $time = $footer.append($(<'h5'>)).addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString());
+  // let $flag = $footer.append($(<'img'>)).addClass('flag').attr("src","https://cdn.onlinewebfonts.com/svg/img_469905.png");
+
   $tweet.append($header);
   $header.append($('<img>').addClass('avatar').attr("src", tweet.user.avatars.small));
   $header.append($('<h4>').addClass('handle').text(tweet.user.handle));
   $header.append($('<h3>').addClass('name').text(tweet.user.name));
   $tweet.append($('<h5>').addClass('tweet-content').text(tweet.content.text));
-  $tweet.append($time);
+  // $tweet.append($footer);
+
   return $tweet;
 }
 
@@ -58,18 +62,7 @@ function loadTweets(){
     });
 }
 
-function errorMessage(tweet){
-  if (tweet.length > 140){
-    $('.error-message').text("Error: Over character limit")
-    return false;
-  } else if (tweet === ""){
-    $('.error-message').text("Please enter your tweet")
-    return false;
-  } else{
-    $('.error-message').text("")
-    return true;
-  }
-}
+
 
 $(document).ready(function() {
   loadTweets();
@@ -80,6 +73,7 @@ $(document).ready(function() {
     $.post('/tweets',serializedTweet,(res)=>{
         loadTweets();
         $('#new-tweet textarea').val("");
+        $('span.counter').text(140);
       })
     }
   })
