@@ -1,3 +1,7 @@
+.clearfix {
+  overflow: auto;
+}
+
 nav#nav-bar {
   background-color: blueviolet;
   color: #e8fdff;

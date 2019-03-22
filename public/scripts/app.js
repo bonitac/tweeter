@@ -4,6 +4,28 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+function createTweetElement(tweet) {
+  let $tweet = $('<article>').addClass('tweets');
+  let $header = $('<header>').addClass('user-info');
+  let $footer = $('<footer>').addClass('tweet-footer');
+  let $span = $('<span>').addClass('icons');
+  
+  $tweet.append($header);
+  $header.append($('<img>').addClass('avatar').attr("src", tweet.user.avatars.small));
+  $header.append($('<h4>').addClass('handle').text(tweet.user.handle));
+  $header.append($('<h3>').addClass('name').text(tweet.user.name));
+  $tweet.append($('<h5>').addClass('tweet-content').text(tweet.content.text));
+
+  $tweet.append($footer);
+  $footer.append($('<h5>').addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString()));
+  $footer.append($span);
+  $span.append($('<img>').addClass('flag').attr("src", "/images/flag.png"));
+  $span.append($('<img>').addClass('heart').attr("src", "/images/heart.png"));
+  $span.append($('<img>').addClass('retweet').attr("src", "/images/retweet.png"));  
+
+  return $tweet;
+}
+
 function renderTweets(tweets) {
   let tweetContainer = $('.tweets-container')
   tweets.forEach(function(tweet){
@@ -12,34 +34,22 @@ function renderTweets(tweets) {
   return tweetContainer;
 }
 
+function loadTweets(){
+  $('.tweets-container').empty()
+  $.ajax('/tweets', { method: 'GET' })
+   .then((response) => {
+     renderTweets(response);
+    });
+}
+
 function compose(){
   $('.compose').slideToggle('fast');
   $('textarea').focus();
 }
 
-function createTweetElement(tweet) {
-  let $tweet = $('<article>').addClass('tweets');
-  let $header = $('<header>').addClass('user-info');
-  let $footer = $("<footer>").addClass('tweet-footer')
-  $footer.append($('<h5>')).addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString());
-  // $footer.append($(<'img'>)).addClass('flag').attr("src", "/images/flag.png");
-
-  // <img class="retweet" src="/images/heart.png">
-  // <img class="like" src="/images/retweet.png">
-
-  $tweet.append($header);
-  $header.append($('<img>').addClass('avatar').attr("src", tweet.user.avatars.small));
-  $header.append($('<h4>').addClass('handle').text(tweet.user.handle));
-  $header.append($('<h3>').addClass('name').text(tweet.user.name));
-  $tweet.append($('<h5>').addClass('tweet-content').text(tweet.content.text));
-  $tweet.append($footer);
-
-  return $tweet;
-}
-
 function timeSince(timeStamp) {
-  var now = new Date(),
-    secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
+  var now = new Date();
+  secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
   if(secondsPast < 60){
     return parseInt(secondsPast) + 's';
   }
@@ -56,15 +66,6 @@ function timeSince(timeStamp) {
       return day + " " + month + year;
   }
 }
-
-function loadTweets(){
-  $('.tweets-container').empty()
-  $.ajax('/tweets', { method: 'GET' })
-   .then((response) => {
-     renderTweets(response);
-    });
-}
-
 
 
 $(document).ready(function() {
