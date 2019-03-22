@@ -20,7 +20,7 @@ function compose(){
 function createTweetElement(tweet) {
   let $tweet = $('<article>').addClass('tweets');
   let $header = $('<header>').addClass('user-info');
-  let $time = $("<footer>").addClass('time').text(new Date(tweet.created_at).toLocaleString());
+  let $time = $("<footer>").addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString());
   $tweet.append($header);
   $header.append($('<img>').addClass('avatar').attr("src", tweet.user.avatars.small));
   $header.append($('<h4>').addClass('handle').text(tweet.user.handle));
@@ -28,6 +28,26 @@ function createTweetElement(tweet) {
   $tweet.append($('<h5>').addClass('tweet-content').text(tweet.content.text));
   $tweet.append($time);
   return $tweet;
+}
+
+function timeSince(timeStamp) {
+  var now = new Date(),
+    secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
+  if(secondsPast < 60){
+    return parseInt(secondsPast) + 's';
+  }
+  if(secondsPast < 3600){
+    return parseInt(secondsPast/60) + 'm';
+  }
+  if(secondsPast <= 86400){
+    return parseInt(secondsPast/3600) + 'h';
+  }
+  if(secondsPast > 86400){
+      day = timeStamp.getDate();
+      month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
+      year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
+      return day + " " + month + year;
+  }
 }
 
 function loadTweets(){
@@ -63,4 +83,5 @@ $(document).ready(function() {
       })
     }
   })
+  loadTweets();
 })
