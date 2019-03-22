@@ -1,8 +1,24 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page Twitter clone. This demonstrates HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+## Screenshots of Final Product
+### Composing a Tweet
+!["Screenshot of Composing a Tweet"](https://github.com/bonitac/tinyApp/blob/master/docs/register.png)
+
+### Over the Character Limit
+!["Screenshot of Over the Character Limit"](https://github.com/bonitac/tinyApp/blob/master/docs/login.png)
+
+### Posted Tweet
+!["Screenshot of Posted tweet"](https://github.com/bonitac/tinyApp/blob/master/docs/index.png)
+
+
+## Dependencies
+
+- body-parser
+- change
+- express
+- mongodb
 
 ## Getting Started
 
