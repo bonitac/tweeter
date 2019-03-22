@@ -1,28 +1,25 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+//Client-side JS logic goes here
 
 function createTweetElement(tweet) {
   let $tweet = $('<article>').addClass('tweets');
   let $header = $('<header>').addClass('user-info');
   let $footer = $('<footer>').addClass('tweet-footer');
   let $span = $('<span>').addClass('icons');
-  
+  //Appending header to Tweet and appending other elements to header
   $tweet.append($header);
   $header.append($('<img>').addClass('avatar').attr("src", tweet.user.avatars.small));
   $header.append($('<h4>').addClass('handle').text(tweet.user.handle));
   $header.append($('<h3>').addClass('name').text(tweet.user.name));
+  //Appending Tweet Content to Tweet
   $tweet.append($('<h5>').addClass('tweet-content').text(tweet.content.text));
-
+  //Appending footer to Tweet and apending other elements to footer
   $tweet.append($footer);
   $footer.append($('<h5>').addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString()));
   $footer.append($span);
   $span.append($('<img>').addClass('flag').attr("src", "/images/flag.png"));
   $span.append($('<img>').addClass('heart').attr("src", "/images/heart.png"));
-  $span.append($('<img>').addClass('retweet').attr("src", "/images/retweet.png"));  
-
+  $span.append($('<img>').addClass('retweet').attr("src", "/images/retweet.png"));
+  
   return $tweet;
 }
 
@@ -66,7 +63,6 @@ function timeSince(timeStamp) {
       return day + " " + month + year;
   }
 }
-
 
 $(document).ready(function() {
   loadTweets();
