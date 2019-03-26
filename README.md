@@ -12,14 +12,6 @@ Tweeter is a simple, single-page Twitter clone. This demonstrates HTML, CSS, JS,
 ### Posted Tweet
 !["Screenshot of Posted tweet"](https://github.com/bonitac/tweeter/blob/master/docs/successful%20tweet.png)
 
-
-## Dependencies
-
-- body-parser
-- change
-- express
-- mongodb
-
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
@@ -31,3 +23,7 @@ Tweeter is a simple, single-page Twitter clone. This demonstrates HTML, CSS, JS,
 
 - Express
 - Node 5.10.x or above
+- body-parser
+- change
+- express
+- mongodb
