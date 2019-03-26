@@ -19,7 +19,7 @@ function createTweetElement(tweet) {
   $span.append($('<img>').addClass('flag').attr("src", "/images/flag.png"));
   $span.append($('<img>').addClass('heart').attr("src", "/images/heart.png"));
   $span.append($('<img>').addClass('retweet').attr("src", "/images/retweet.png"));
-  
+
   return $tweet;
 }
 
@@ -50,12 +50,15 @@ function timeSince(timeStamp) {
   if(secondsPast < 60){
     return parseInt(secondsPast) + 's';
   }
+  //calculate mins since post if greater than 60 seconds
   if(secondsPast < 3600){
     return parseInt(secondsPast/60) + 'm';
   }
+  //calculates hours since post if greater than 60min
   if(secondsPast <= 86400){
     return parseInt(secondsPast/3600) + 'h';
   }
+  //if time past 24 hrs display regular date
   if(secondsPast > 86400){
       day = timeStamp.getDate();
       month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
@@ -68,7 +71,7 @@ $(document).ready(function() {
   loadTweets();
   $('#new-tweet').submit(function (e){
     e.preventDefault();
-    let serializedTweet = $(this).serialize();    
+    let serializedTweet = $(this).serialize();
     if (errorMessage($('textarea').val())){
     $.post('/tweets',serializedTweet,(res)=>{
         loadTweets();
