@@ -17,14 +17,14 @@ function createTweetElement(tweet) {
   $footer.append($('<h5>').addClass('time').text(timeSince(new Date(tweet.created_at)).toLocaleString()));
   $footer.append($span);
   $span.append($('<img>').addClass('flag').attr("src", "/images/flag.png"));
-  $span.append($('<img>').addClass('heart').attr("src", "/images/heart.png"));
+  $span.append($('<img>').addClass('heart').attr("src", "<i class="far fa-heart"></i> "));
   $span.append($('<img>').addClass('retweet').attr("src", "/images/retweet.png"));
-
+//https://fontawesome.com/start
   return $tweet;
 }
 
 function renderTweets(tweets) {
-  let tweetContainer = $('.tweets-container')
+  let tweetContainer = $('.tweets-container');
   tweets.forEach(function(tweet){
     tweetContainer.prepend(createTweetElement(tweet));
   });
