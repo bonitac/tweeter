@@ -2,7 +2,7 @@
   overflow: auto;
 }
 
-nav#nav-bar {
+#nav-bar {
   background-color: blueviolet;
   color: #e8fdff;
   position: fixed;
